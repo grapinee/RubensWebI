@@ -37,26 +37,26 @@ void loop ()
 
         seno = (sin(x*3.1416/180)); // Calcula o seno do angulo atual (x graus, convertido em radianos)
         frequencia = 2000+ (int(seno* 1000)); // Gera frequencia oscilante entre 1000Hz e 3000Hz a partir do seno 
-        tone (pino, frequencia); // pequena pausas entre passos do som
+        tone (pino, frequencia); // Pequena pausas entre passos do som
         delay (1);
 
-        x++; // avana o angulo em 1 grau a cada iteração do loop
-        if (x >= 180) x = 0; // REinicia o ciclo ao completar 180 grau a cada iteração do loop
+        x++; // avança o angulo em 1 grau a cada iteração do loop
+        if (x >= 180) x = 0; // Reinicia o ciclo ao completar 180 grau a cada iteração do loop
         
     }else  if (distancia > 90 && distancia < 150){ // objeto em distancia media (90 - 150 cm)
-        digitalWrite (LED1, LOW); // apaga o led de "longe"
-        digitalWrite (LED2, HIGH); // acende o led de "medio"        
-        digitalWrite (LED3, LOW); // apaga o led de "perto"
-        tone (pino, 550); // toca de tom fixo de 550Hz
+        digitalWrite (LED1, LOW); // Apaga o led de "longe"
+        digitalWrite (LED2, HIGH); // Acende o led de "medio"        
+        digitalWrite (LED3, LOW); // Apaga o led de "perto"
+        tone (pino, 550); // Toca de tom fixo de 550Hz
         delay (1); // pequena pausa
         x = 0; // zera  o contador
 
     }
-    Serial.print("Distancia media:  ");
-    Serial.print(distancia);
-    Serial.println("cm");
+    Serial.print("Distancia media:  ");// Imprime rotolo no monitor
+    Serial.print(distancia); // imprime o valor  da distancia
+    Serial.println("cm"); // imprime a unidade e quebra de linha
   
- 	delay(50);  
+ 	delay(50);  // pausa entre leituras do sensor  (~20x por segundo)
 
 }
 
